@@ -3,8 +3,9 @@
 SOCKET_PATH=/var/run/wsl-vpnkit.sock
 PIPE_PATH="//./pipe/wsl-vpnkit"
 
-VPNKIT_PATH=${VPNKIT_PATH:-/mnt/c/bin/wsl-vpnkit.exe}
-VPNKIT_NPIPERELAY_PATH=${VPNKIT_NPIPERELAY_PATH:-/mnt/c/bin/npiperelay.exe}
+WINUSER=$(/mnt/c/WINDOWS/system32/WindowsPowerShell/v1.0/powershell.exe -c "Write-Host -NoNewLine ([Environment]::UserName)")
+VPNKIT_PATH=${VPNKIT_PATH:-/mnt/c/Users/$WINUSER/wsl_vpnkit/wsl-vpnkit.exe}
+VPNKIT_NPIPERELAY_PATH=${VPNKIT_NPIPERELAY_PATH:-/mnt/c/Users/$WINUSER/wsl_vpnkit/npiperelay.exe}
 # VPNKIT_HTTP_CONFIG="C:/Users/user/AppData/Roaming/Docker/http_proxy.json"
 # VPNKIT_GATEWAY_FORWARD_CONFIG="C:/Users/user/AppData/Roaming/Docker/gateway_forwards.json"
 VPNKIT_BACKLOG="32"
